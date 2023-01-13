@@ -1,10 +1,13 @@
 import React from 'react';
 
-export default function Controls({ setHead }) {
+export default function Controls({ setHead, countHead }) {
   const heads = ['cry', 'dollar', 'rage', 'sleep', 'smile'];
 
   const handleHead = (event) => {
     setHead(event.target.value);
+    countHead((currentState) => {
+      return currentState + 1;
+    });
   };
 
   return (
