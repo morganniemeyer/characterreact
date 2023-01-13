@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-export default function Display() {
+export default function Display({ head }) {
   return (
-    <div>Display</div>
-  )
+    <div>
+      <img src={`/images/heads/${head}.png`} />
+    </div>
+  );
 }
