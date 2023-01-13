@@ -8,13 +8,14 @@ export default function Layout() {
   const [head, setHead] = useState('dollar');
   const [headCount, countHead] = useState(0);
   const [torso, setTorso] = useState('blouse');
+  const [torsoCount, countTorso] = useState(0);
   return (
     <main>
       <div>
-        <Controls {...{ setHead, headCount, setTorso }} />
+        <Controls {...{ setHead, countHead, setTorso, countTorso }} />
         <Display {...{ head, torso }} />
       </div>
-      <Catch {...{ headCount }} />
+      <Catch {...{ headCount, torsoCount }} />
     </main>
   );
 }

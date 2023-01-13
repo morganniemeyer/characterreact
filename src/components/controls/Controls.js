@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Controls({ setHead, countHead, setTorso }) {
+export default function Controls({ setHead, countHead, setTorso, countTorso }) {
   const heads = ['dollar', 'cry', 'rage', 'sleep', 'smile'];
   const torsos = ['blouse', 'hawaii', 'jumper', 'suit', 'tank-top'];
 
@@ -12,6 +12,9 @@ export default function Controls({ setHead, countHead, setTorso }) {
   };
   const handleTorso = (event) => {
     setTorso(event.target.value);
+    countTorso((currentState) => {
+      return currentState + 1;
+    });
   };
 
   return (
