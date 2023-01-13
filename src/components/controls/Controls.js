@@ -1,6 +1,13 @@
 import React from 'react';
 
-export default function Controls({ setHead, countHead, setTorso, countTorso, setBottoms }) {
+export default function Controls({
+  setHead,
+  countHead,
+  setTorso,
+  countTorso,
+  setBottoms,
+  countBottoms,
+}) {
   const heads = ['dollar', 'cry', 'rage', 'sleep', 'smile'];
   const torsos = ['blouse', 'hawaii', 'jumper', 'suit', 'tank-top'];
   const bottoms = ['overalls', 'pants', 'sweats', 'widecut', 'jeans'];
@@ -19,6 +26,9 @@ export default function Controls({ setHead, countHead, setTorso, countTorso, set
   };
   const handleBottoms = (event) => {
     setBottoms(event.target.value);
+    countBottoms((currentState) => {
+      return currentState + 1;
+    });
   };
 
   return (
