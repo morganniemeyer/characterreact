@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default function Controls({ setHead, countHead, setTorso, countTorso }) {
+export default function Controls({ setHead, countHead, setTorso, countTorso, setBottoms }) {
   const heads = ['dollar', 'cry', 'rage', 'sleep', 'smile'];
   const torsos = ['blouse', 'hawaii', 'jumper', 'suit', 'tank-top'];
+  const bottoms = ['overalls', 'pants', 'sweats', 'widecut', 'jeans'];
 
   const handleHead = (event) => {
     setHead(event.target.value);
@@ -15,6 +16,9 @@ export default function Controls({ setHead, countHead, setTorso, countTorso }) {
     countTorso((currentState) => {
       return currentState + 1;
     });
+  };
+  const handleBottoms = (event) => {
+    setBottoms(event.target.value);
   };
 
   return (
@@ -32,6 +36,14 @@ export default function Controls({ setHead, countHead, setTorso, countTorso }) {
         {torsos.map((torsoItem) => (
           <option key={torsoItem} value={torsoItem}>
             {torsoItem}
+          </option>
+        ))}
+        ;
+      </select>
+      <select onChange={handleBottoms}>
+        {bottoms.map((bottomItem) => (
+          <option key={bottomItem} value={bottomItem}>
+            {bottomItem}
           </option>
         ))}
         ;
