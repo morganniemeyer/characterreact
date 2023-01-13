@@ -5,13 +5,14 @@ import Display from '../display/Display.js';
 import './layout.css';
 
 export default function Layout() {
-  const [head, setHead] = useState();
+  const [head, setHead] = useState('dollar');
   const [headCount, countHead] = useState(0);
+  const [torso, setTorso] = useState('blouse');
   return (
     <main>
       <div>
-        <Controls {...{ setHead, countHead, headCount }} />
-        <Display {...{ head }} />
+        <Controls {...{ setHead, headCount, setTorso }} />
+        <Display {...{ head, torso }} />
       </div>
       <Catch {...{ headCount }} />
     </main>
