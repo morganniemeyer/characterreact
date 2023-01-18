@@ -11,13 +11,16 @@ export default function Layout() {
   const [torsoCount, countTorso] = useState(0);
   const [bottoms, setBottoms] = useState('overalls');
   const [bottomsCount, countBottoms] = useState(0);
+  const [phrases, setPhrases] = useState([]);
   return (
     <main>
       <div>
-        <Controls {...{ setHead, countHead, setTorso, countTorso, setBottoms, countBottoms }} />
+        <Controls
+          {...{ setHead, countHead, setTorso, countTorso, setBottoms, countBottoms, setPhrases }}
+        />
         <Display {...{ head, torso, bottoms }} />
       </div>
-      <Catch {...{ headCount, torsoCount, bottomsCount }} />
+      <Catch {...{ headCount, torsoCount, bottomsCount, phrases }} />
     </main>
   );
 }

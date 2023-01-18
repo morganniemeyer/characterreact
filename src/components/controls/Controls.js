@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 export default function Controls({
   setHead,
@@ -7,10 +8,12 @@ export default function Controls({
   countTorso,
   setBottoms,
   countBottoms,
+  setPhrases,
 }) {
   const heads = ['dollar', 'cry', 'rage', 'sleep', 'smile'];
   const torsos = ['blouse', 'hawaii', 'jumper', 'suit', 'tank-top'];
   const bottoms = ['overalls', 'pants', 'sweats', 'widecut', 'jeans'];
+  const [input, textBox] = useState('');
 
   const handleHead = (event) => {
     setHead(event.target.value);
@@ -29,6 +32,10 @@ export default function Controls({
     countBottoms((currentState) => {
       return currentState + 1;
     });
+  };
+  const handleAddPhrase = (e) => {
+    setPhrases((currentState) => [input, ...currentState]);
+    textBox('');
   };
 
   return (
@@ -58,6 +65,8 @@ export default function Controls({
         ))}
         ;
       </select>
+      <input value={input} type="text" onChange={(e) => textBox(e.target.value)} />
+      <button onClick={handleAddPhrase}>Submit</button>
     </div>
   );
 }
