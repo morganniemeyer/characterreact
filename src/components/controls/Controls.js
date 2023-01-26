@@ -33,7 +33,7 @@ export default function Controls({
       return currentState + 1;
     });
   };
-  const handleAddPhrase = (e) => {
+  const handleAddPhrase = () => {
     setPhrases((currentState) => [input, ...currentState]);
     textBox('');
   };
